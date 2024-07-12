@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from providerModules.a4kScrapers import core
+from .source_utils import tools
 
 class sources(core.DefaultSources):
     def __init__(self, *args, **kwargs):
@@ -71,6 +72,7 @@ class sources(core.DefaultSources):
         return el['title']
 
     def _info(self, el, url, torrent):
+        tools.log('el: \n'+str(el)) 
         if 'infoHash' in el:
             torrent['hash'] = el['infoHash']
         if 'url' in el:
